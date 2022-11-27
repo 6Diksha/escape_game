@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,6 +20,15 @@ public class PlayerMovement : MonoBehaviour
         if(GetComponent<Rigidbody>().velocity.magnitude<maxSpeed){
             GetComponent<Rigidbody>().AddRelativeForce(input * moveSpeed);
         }
+
+        if (transform.position.x < -1)
+        {
+            SceneManager.LoadScene("End");;
+        }
     }
-    
 }
+//     void Restart()
+//     {
+//         SceneManager.LoadScene(SceneManager.GetActiveScene)
+    
+// }
